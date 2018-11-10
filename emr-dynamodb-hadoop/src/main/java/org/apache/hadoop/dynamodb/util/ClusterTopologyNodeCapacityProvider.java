@@ -105,11 +105,11 @@ public class ClusterTopologyNodeCapacityProvider implements NodeCapacityProvider
   }
 
   private String extractInstanceType(String jobFlowJsonString, String targetInstanceRole) {
-    System.out.println("----------------- ARO:DEBUG -------------- ");
+    log.info("----------------- ARO:DEBUG -------------- ");
     try  {
-      System.out.println(new File(Jackson.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath());
+      log.info(new File(Jackson.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath());
     }  catch (java.net.URISyntaxException e){
-      System.out.println("----------------- ARO:DEBUG -------------- ");
+      log.info("----------------- ARO:DEBUG -------------- ");
     }
     JsonNode jobFlowJson = Jackson.jsonNodeOf(jobFlowJsonString);
     JsonNode instanceGroups = jobFlowJson.get("instanceGroups");
